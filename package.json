@@ -1,0 +1,23 @@
+{
+  "name": "planning-poker-discord-bot",
+  "version": "1.0.0",
+  "description": "A discord bot for playing planning poker",
+  "main": "index.js",
+  "author": "Anton Sarg",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "lint": "npx eslint ./"
+  },
+  "dependencies": {
+    "discord.js": "^14.8.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "typescript": "^5.0.2"
+  }
+}
