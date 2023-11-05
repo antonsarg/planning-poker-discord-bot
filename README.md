@@ -49,6 +49,9 @@ cd planning-poker-discord-bot/
 npm install
 ```
 
+> [!NOTE]
+> You can skip the installation if you only want to run the bot in a Docker container. For instructions on how to deploy using Docker, please refer to the [Docker Deployment](#docker-deployment) section.
+
 ### Configuration
 
 Before you run the bot, you will need to set up your environment variables. A sample `.env.example` file is included in the repository, which you should rename to `.env` and update with your specific details.
@@ -69,11 +72,41 @@ Remember to enable 'Developer Mode' in your Discord settings if you cannot see t
 
 ## Run the Bot
 
-Once you have configured your environment with the necessary variables, execute the command below to get the Planning Poker Discord Bot up and running on your server.
+To run the Planning Poker Discord Bot, you'll need to have Node.js and npm installed. Depending on your use case, you can run the bot in a production environment or a development environment with live reload.
+
+### For Production
+
+Once you have configured your environment with the necessary variables, execute the command below to start the bot on your server in production mode:
 
 ```bash
 npm start
 ```
+
+This command runs the bot in a stable environment without live reloading. Use this for a live server where you want the bot to remain active without interruption.
+
+### For Development
+
+If you are continuing to develop and test new features for the bot, you might prefer to run it in a development environment that supports live reloading. This means the bot will automatically restart whenever you save changes to the code. Start the bot in development mode with the following command:
+
+```bash
+npm run dev
+```
+
+The npm run dev command leverages nodemon to watch for changes in your source files and restart the bot automatically, making it easier to test new features or changes.
+
+### Docker Deployment
+
+For those who prefer containerization, the Planning Poker Discord Bot can be easily run using Docker Compose.
+
+Prerequisites:
+
+- Docker installed on your system.
+- Docker Compose installed on your system.
+
+Steps to deploy with Docker Compose:
+
+1. Build Container with `docker-compose build`
+2. Run the container with `docker-compose up -d`
 
 ## Usage
 
