@@ -26,7 +26,7 @@ To set up the Planning Poker Discord Bot, you'll need to create a bot user throu
 
 4. Under the bot settings, you'll find the newly generated token, which you'll use in your `.env` file. Keep this token private.
 
-5. Navigate to the "Privileged Gateway Intents" section. Here, ensure that you enable the "SERVER MEMBERS INTENT" to allow your bot to receive events.
+5. Navigate to the "Privileged Gateway Intents" section. Here, ensure that you enable the "PRESENCE INTENT" and "SERVER MEMBERS INTENT".
 
 6. After setting up the bot, go to the "OAuth2" tab. Under "URL Generator," select "bot" and then in "Bot Permissions," select the "Send Messages" permission.
 
