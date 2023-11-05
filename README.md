@@ -39,7 +39,7 @@ Remember to handle your bot token securely and never share it with anyone.
 Node.js 16.11.0 or newer is required.
 
 > [!NOTE]
-> You can skip the installation via `npm install` if you only want to run the bot in a Docker container. For instructions on how to deploy using Docker, please refer to the [Docker Deployment](#docker-deployment) section.
+> You can skip the installation using `npm install` if you only want to run the bot in a Docker container. For instructions on how to deploy using Docker, please refer to the [Docker Deployment](#docker-deployment) section.
 
 ```bash
 # Clone the repository
