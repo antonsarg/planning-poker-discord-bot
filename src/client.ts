@@ -9,7 +9,11 @@ import { Command } from "./commands/command";
 import { PlayCommand } from "./commands/play";
 
 export const client: Client = new Client({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildPresences,
+  ],
   partials: [Partials.Channel],
 });
 

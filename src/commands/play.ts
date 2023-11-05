@@ -214,7 +214,8 @@ export class PlayCommand implements Command {
         member.roles.cache.has(role.id) &&
         textChannel
           .permissionsFor(member)
-          .has(PermissionsBitField.Flags.ViewChannel)
+          .has(PermissionsBitField.Flags.ViewChannel) &&
+        member.presence?.status === "online"
     );
 
     const usersWithRoleAndAccess: User[] = membersWithRoleAndAccess.map(
