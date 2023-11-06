@@ -105,7 +105,7 @@ Prerequisites:
 
 Steps to deploy with Docker Compose:
 
-1. Build Container with `docker-compose build`
+1. Build the container with `docker-compose build`
 2. Run the container with `docker-compose up -d`
 
 ## Usage
