@@ -11,5 +11,6 @@
   "ts-node": {
     "files": true
   },
-  "files": ["discord.d.ts"]
+  "files": ["discord.d.ts"],
+  "include": ["src/**/*.ts"]
 }

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-import { client } from "./src/client";
+import { client } from "./client";
 
 dotenv.config();
 
