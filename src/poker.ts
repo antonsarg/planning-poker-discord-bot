@@ -123,7 +123,7 @@ export class Poker {
       `Antworten:`,
       ...answersList,
       "",
-      `Durchschnitt: ${roundResults.averageStorypoints} ${
+      `Durchschnitt: ${roundResults.averageStorypoints.toFixed(2)} ${
         roundResults.averageStorypoints == 1 ? "Stunde" : "Stunden"
       }`,
     ];
