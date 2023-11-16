@@ -94,37 +94,40 @@ export class Poker {
   }
 
   getSummary(roundResults: RoundResults, userWhoCanceled?: User): string {
+    const { question, answers, usersWhoDidntAnswer, averageStorypoints } =
+      roundResults;
+
     const title = userWhoCanceled
       ? `Runde durch ${userMention(userWhoCanceled.id)} ${
-          roundResults.answers.length === 0 ? "abgebrochen" : "beendet"
+          answers.length === 0 ? "abgebrochen" : "beendet"
         }!`
       : "Die Runde ist vorbei!";
 
     // If no one answered, only show the title
-    if (roundResults.answers.length === 0) return bold(title);
+    if (answers.length === 0) return bold(title);
 
     // Build list of answers
     const answersList: string[] = [];
-    roundResults.answers.forEach((answer) => {
+    answers.forEach((answer) => {
       answersList.push(
         `- ${userMention(answer.user.id)}: ${answer.points.toString()}`
       );
     });
 
-    roundResults.usersWhoDidntAnswer.forEach((user) => {
+    usersWhoDidntAnswer.forEach((user) => {
       answersList.push(`- ${userMention(user.id)}: [-]`);
     });
 
     // Build detailed summary
     const content = [
       bold(title),
-      `Task: ${roundResults.question}`,
+      `Task: ${question}`,
       "",
       `Antworten:`,
       ...answersList,
       "",
-      `Durchschnitt: ${roundResults.averageStorypoints.toFixed(2)} ${
-        roundResults.averageStorypoints == 1 ? "Stunde" : "Stunden"
+      `Durchschnitt: ${Number(averageStorypoints.toFixed(2))} ${
+        averageStorypoints == 1 ? "Stunde" : "Stunden"
       }`,
     ];
 
