@@ -22,6 +22,7 @@ export class PlayCommand implements Command {
   poker?: Poker;
   data: SlashCommandBuilder;
   gameDetailsReply?: Message<boolean>;
+  gameDetailsContent?: string;
 
   constructor() {
     this.name = "play";
@@ -114,6 +115,8 @@ export class PlayCommand implements Command {
         const summary = this.poker.cancelQuestion(interaction.user);
         await interaction.reply(summary);
         this.poker = undefined;
+        this.gameDetailsReply = undefined;
+        this.gameDetailsContent = undefined;
         return;
       }
 
@@ -134,8 +137,9 @@ export class PlayCommand implements Command {
       if (summary) {
         this.disableButtons();
         await interaction.channel?.send(summary);
-        this.gameDetailsReply = undefined;
         this.poker = undefined;
+        this.gameDetailsReply = undefined;
+        this.gameDetailsContent = undefined;
       }
     });
   }
@@ -153,13 +157,15 @@ export class PlayCommand implements Command {
       })
       .join("\n");
 
+    this.gameDetailsContent = [
+      `Task: ${this.poker?.currentQuestion}`,
+      "",
+      "Spieler:",
+      usersString,
+    ].join("\n");
+
     this.gameDetailsReply?.edit({
-      content: [
-        `Task: ${this.poker?.currentQuestion}`,
-        "",
-        "Spieler:",
-        usersString,
-      ].join("\n"),
+      content: this.gameDetailsContent,
     });
   }
 
@@ -191,7 +197,7 @@ export class PlayCommand implements Command {
     });
 
     this.gameDetailsReply?.edit({
-      content: this.gameDetailsReply.content,
+      content: this.gameDetailsContent,
       components: newComponents,
     });
   }
