@@ -89,9 +89,20 @@ export class PlayCommand implements Command {
     });
 
     collector.on("collect", async (interaction) => {
+      // Check if game is still running
       if (!this.poker) {
         interaction.reply({
           content: "Diese Runde ist bereits vorbei!",
+          ephemeral: true,
+        });
+        return;
+      }
+
+      // Check if user is one of the players
+      const players = this.poker.users.map((user) => user.id);
+      if (!players.includes(interaction.user.id)) {
+        interaction.reply({
+          content: "Du spielst nicht mit!",
           ephemeral: true,
         });
         return;
